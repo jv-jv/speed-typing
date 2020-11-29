@@ -1,6 +1,5 @@
 // Variables
 
-// $clr-support: #00ff00;
 $clr-support: #00c000;
 $clr-bg: #000000;
 
@@ -24,53 +23,119 @@ body {
   letter-spacing: 1px;
 }
 
+h1,
+p,
+.settings-title {
+  text-align: center;
+}
+
+h1 {
+  letter-spacing: 2px;
+}
+
+textarea {
+  font-family: $font-f;
+}
+
+.time-info {
+  font-size: 0.5em;
+}
+
+.settings-title {
+  font-size: 0.75rem;
+}
+
+button {
+  font-size: 1.5rem;
+}
+
 // Layout
 
 #root {
-  // border: 1px solid hotpink;
   display: grid;
   justify-content: center;
 }
 
-button {
-  justify-self: center;
-  // border: none;
-  border: 1px solid $clr-support;
-  // border-radius: 5px;
-  background-color: transparent;
-  color: $clr-support;
-  font-size: 1.5rem;
-  padding: 0.5em 1.5em;
-  transition: all 150ms ease-in;
-
-  &:hover {
-    color: $clr-bg;
-    background-color: $clr-support;
-  }
-
-  &:active {
-    transform: scale(0.9);
-  }
-}
-
 textarea {
-  resize: none;
+  margin: 0 1em;
+  padding: 0.5em;
   height: 10rem;
+  resize: none;
   border: none;
-  background-color: $clr-support;
-  font-family: $font-f;
   outline: none;
+  background-color: $clr-support;
 
   &:disabled {
-    background-color: #ddd;
+    filter: opacity(0.5);
   }
 }
 
 h1 {
   margin-top: 1em;
+  max-width: 500px;
 }
 
 p {
   margin: 0.75em 0;
-  text-align: center;
+}
+
+.time-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.time-info {
+  margin-left: 1em;
+  border-radius: 50%;
+  border: 1px solid $clr-support;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: grid;
+  place-content: center;
+  cursor: pointer;
+}
+
+// bottons
+
+button {
+  border: 1px solid $clr-support;
+  background-color: transparent;
+  color: $clr-support;
+  transition: all 150ms ease-in;
+  cursor: pointer;
+
+  &:enabled {
+    &:hover,
+    &:focus {
+      outline: none;
+      color: $clr-bg;
+      background-color: $clr-support;
+    }
+
+    &:active {
+      transform: scale(0.9);
+    }
+  }
+
+  &:disabled {
+    filter: opacity(0.5);
+    cursor: not-allowed;
+  }
+}
+
+.start-btn {
+  justify-self: center;
+  padding: 0.5em 1.5em;
+}
+
+.settings-btns {
+  margin: 1em auto;
+
+  button {
+    margin: 0 0.5em;
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+  }
 }
